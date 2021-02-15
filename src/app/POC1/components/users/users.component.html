@@ -1,0 +1,23 @@
+<h3 class="text-center mb-5">Angular POC 1</h3>
+<h5>User Details</h5>
+<table class="table table-bordered width60p">
+    <thead class="table-primary">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td >{{user.name}}</td>
+            <td>{{user.age}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<button class="btn btn-dark mb-2" (click)="conditionFlag=!conditionFlag">{{conditionFlag ? 'Make Condition False': 'Make Condition True'}}</button>
+
+<p *ngIf="conditionFlag; else elseBlock"><strong>Paragraph to render when condition is true.</strong></p>
+<ng-template #elseBlock>
+    <p><strong>  Paragraph to render when condition is false. </strong></p>
+</ng-template>

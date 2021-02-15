@@ -1,0 +1,19 @@
+<app-well (newWellEvent)="addNewWell($event)" [patchSelectedWell]="selectedWell"></app-well>
+<div class="paddinglr30p mt-1">
+    <table class="table table-bordered table-hover width60p">
+        <thead class="table-primary">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Source</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let well of wells" (click)="patchWellValue(well)">
+                <td>{{well.name}}</td>
+                <td [ngClass]="{'bgGreen':well.type.toLowerCase() === 'na'}" [ngStyle]="{'color':well.type.toLowerCase() === 'esp'?'red':'black'}">{{well.type}}</td>
+                <td>{{well.source}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
